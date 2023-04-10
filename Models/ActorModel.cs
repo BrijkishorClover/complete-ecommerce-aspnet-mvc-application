@@ -1,0 +1,31 @@
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.Linq;
+using System.Threading.Tasks;
+
+namespace eTickets.Models
+{
+    public class ActorModel
+    {
+        [Key]
+        public int Id { get; set; }
+
+        [Display(Name = "Profile Picture URL")]
+        [Required(ErrorMessage ="Profile Picture is required ")]
+        public string ProfilePictureURL { get; set; }
+
+        [Display(Name = "Full Name")]
+        [Required(ErrorMessage = "Full name is required ")]
+        [StringLength(50,MinimumLength = 3,ErrorMessage ="Full Name must be between 3 to 50 characters" )]
+        public string FullName { get; set; }
+
+        [Display(Name = "Biography")]
+        [Required(ErrorMessage ="Biography is required")]
+        public string Bio { get; set; }
+
+        //Relationship
+        public List<Actor_MovieModel> Actors_Movies { get; set; }
+    }
+}
+ 
